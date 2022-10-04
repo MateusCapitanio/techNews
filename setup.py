@@ -1,5 +1,7 @@
 from setuptools import setup
 
+# Iniciando o projeto
+
 setup(
     name="tech_news",
     description="Projeto Tech News",
