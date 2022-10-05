@@ -1,21 +1,22 @@
 import requests
 import time
+# import parsel
 
 url = "https://blog.betrybe.com/"
 
 
+# Requisito 1
 def fetch(url, timeout=3):
     try:
         time.sleep(1)
         response = requests.get(
             url,
-            headers={"user-agent": "Fake user-agent", "Accept": "text/html"},
-            timeout=timeout
-        )
+            headers={"User-agent": "Fake user-agent", "Accept": "text/html"},
+            timeout=timeout)
         response.raise_for_status()
     except (requests.HTTPError, requests.ReadTimeout):
         return None
-    finally:
+    else:
         return response.text
 
 
