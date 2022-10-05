@@ -1,14 +1,16 @@
 import requests
 import time
 
+url = "https://blog.betrybe.com/"
 
-def fetch(url):
+
+def fetch(url, timeout=3):
     try:
         time.sleep(1)
         response = requests.get(
             url,
-            headers={"user-agent": "Fake user-agent"},
-            timeout=3
+            headers={"user-agent": "Fake user-agent", "Accept": "text/html"},
+            timeout=timeout
         )
     except (requests.HTTPError, requests.ReadTimeout):
         return None
