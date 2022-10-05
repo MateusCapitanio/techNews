@@ -12,6 +12,7 @@ def fetch(url, timeout=3):
             headers={"user-agent": "Fake user-agent", "Accept": "text/html"},
             timeout=timeout
         )
+        response.raise_for_status()
     except (requests.HTTPError, requests.ReadTimeout):
         return None
     finally:
