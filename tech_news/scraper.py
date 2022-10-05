@@ -1,16 +1,17 @@
 import requests
 import time
+from parsel import Selector
 
 url = "https://blog.betrybe.com/"
 
 
-def fetch(url, timeout=3):
+def fetch(url):
     try:
         time.sleep(1)
         response = requests.get(
             url,
             headers={"user-agent": "Fake user-agent"},
-            timeout=timeout)
+            timeout=3)
         response.raise_for_status()
     except (requests.HTTPError, requests.ReadTimeout):
         return None
@@ -20,7 +21,11 @@ def fetch(url, timeout=3):
 
 # Requisito 2
 def scrape_novidades(html_content):
-    """Seu código deve vir aqui"""
+    selector = Selector(text=html_content)
+    responseTags = selector.css(
+        '.archive-main .entry-preview .entry-title a::attr(href)'
+    ).getall()
+    return responseTags
 
 
 # Requisito 3
