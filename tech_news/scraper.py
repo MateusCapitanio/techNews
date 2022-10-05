@@ -9,12 +9,12 @@ def fetch(url, timeout=3):
         time.sleep(1)
         response = requests.get(
             url,
-            headers={"user-agent": "Fake user-agent", "Accept": "text/html"},
+            headers={"user-agent": "Fake user-agent"},
             timeout=timeout)
         response.raise_for_status()
     except (requests.HTTPError, requests.ReadTimeout):
         return None
-    finally:
+    else:
         return response.text
 
 
