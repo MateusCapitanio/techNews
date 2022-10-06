@@ -59,7 +59,7 @@ def scrape_noticia(html_content):
         tags = []
     category = selector.css('div.meta-category a span.label::text').get()
 
-    data = ({
+    result = {
         "url": url,
         "title": title,
         "timestamp": timestamp,
@@ -68,8 +68,8 @@ def scrape_noticia(html_content):
         "summary": text,
         "tags": tags,
         "category": category,
-    })
-    return data
+    }
+    return result
 
 
 # Requisito 5
