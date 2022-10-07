@@ -1,15 +1,19 @@
-from scraper import fetch, scrape_noticia
+from scraper import (
+    fetch,
+    # scrape_noticia
+    # scrape_novidades
+    get_tech_news,
+    # scrape_next_page_link
+)
 
-url1 = 'https://blog.betrybe.com/carreira/passos-'
-url2 = 'fundamentais-para-aprender-a-programar/'
-
-url = url1 + url2
+url = 'https://blog.betrybe.com/'
 
 
 html = fetch(url)
 
 
-scrape_noticia(html)
+# scrape_noticia(html)
+get_tech_news(2)
 
 # scrape_next_page_link(html)
 
