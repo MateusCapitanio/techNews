@@ -6,9 +6,9 @@
 #     # scrape_next_page_link
 # )
 
-from analyzer.search_engine import search_by_date
+from analyzer.search_engine import search_by_tag
 
-search_by_date('2021-04-04')
+search_by_tag('tecnologia')
 
 
 # url = 'https://blog.betrybe.com/'
