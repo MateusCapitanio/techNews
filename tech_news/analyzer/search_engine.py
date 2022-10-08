@@ -1,4 +1,5 @@
 from tech_news.database import search_news
+from datetime import datetime
 
 
 # Requisito 6
@@ -13,7 +14,16 @@ def search_by_title(title):
 
 # Requisito 7
 def search_by_date(date):
-    """Seu código deve vir aqui"""
+    try:
+        date_converted = datetime.fromisoformat(date).strftime('%d/%m/%Y')
+        query = {'timestamp': {'$regex': date_converted, '$options': 'i'}}
+        response = search_news(query)
+        result = list()
+        for new in response:
+            result.append((new['title'], new['url']))
+        return result
+    except ValueError:
+        raise ValueError('Data inválida')
 
 
 # Requisito 8
