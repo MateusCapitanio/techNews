@@ -1,19 +1,24 @@
-from scraper import (
-    fetch,
-    # scrape_noticia
-    # scrape_novidades
-    get_tech_news,
-    # scrape_next_page_link
-)
+# from scraper import (
+#     fetch,
+#     # scrape_noticia,
+#     # scrape_novidades,
+#     get_tech_news,
+#     # scrape_next_page_link
+# )
 
-url = 'https://blog.betrybe.com/'
+from analyzer.search_engine import search_by_title
+
+search_by_title('seguro')
 
 
-html = fetch(url)
+# url = 'https://blog.betrybe.com/'
+
+
+# html = fetch(url)
 
 
 # scrape_noticia(html)
-get_tech_news(2)
+# get_tech_news(1)
 
 # scrape_next_page_link(html)
 
